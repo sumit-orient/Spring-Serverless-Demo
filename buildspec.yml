@@ -11,8 +11,9 @@ phases:
       - apt-get update -y
       - apt-get install -y openjdk-8-jdk
       - java -version
-      - echo "testing applications"
       - apt-get install -y maven
+      - mvn -version
+      - echo "testing applications for maven"
   pre_build:
     commands:
       - echo "Nothing to do in the pre_build phase..."
