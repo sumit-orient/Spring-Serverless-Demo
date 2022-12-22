@@ -2,11 +2,11 @@ version: 0.0
 os: ubuntu
 
 files: 
-  - source: target/AWSLambdaDemoApplication-1.0.jar
-    destination: /home/ubuntu
+  - source: /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/target/AWSLambdaDemoApplication-1.0-SNAPSHOT.jar
+    destination: /
 
 permissions: 
   - object: / 
     pattern: "**" 
-    owner: ubuntu
-    group: ubuntu
+    owner: root
+    group: root
