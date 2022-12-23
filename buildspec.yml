@@ -23,8 +23,8 @@ phases:
     commands:
       - echo "Build started on `date`"
       - mvn install
-      #- pwd
-      #- ls -al /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/target/
+      - pwd
+      - ls -al /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/target/
   post_build:
     commands:
       - echo "Build completed on `date`"
