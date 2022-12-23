@@ -6,15 +6,15 @@ phases:
       #java: corretto11
       #java: openjdk8
     commands:  
-      - apt-get update -y
-      - apt-get install -y software-properties-common
-      - add-apt-repository ppa:openjdk-r/ppa
-      - apt-get update -y
-      - apt-get install -y openjdk-8-jdk
-      - java -version
-      - apt-get install -y maven
-      - mvn -version
-      - echo "testing applications for maven"
+#       - apt-get update -y
+#       - apt-get install -y software-properties-common
+#       - add-apt-repository ppa:openjdk-r/ppa
+#       - apt-get update -y
+#       - apt-get install -y openjdk-8-jdk
+#       - java -version
+#       - apt-get install -y maven
+#       - mvn -version
+#       - echo "testing applications for maven"
       - apt-get install zip
   pre_build:
     commands:
@@ -22,8 +22,8 @@ phases:
   build:
     commands:
       - echo "Build started on `date`"
-      - mvn install
-      - pwd
+#       - mvn install
+#       - pwd
       - ls -al /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/target/
   post_build:
     commands:
