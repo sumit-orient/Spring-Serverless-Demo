@@ -2,32 +2,19 @@ version: 0.2
 
 phases:
   install:
-    #runtime-versions:
+    runtime-versions:
       #java: corretto11
-    commands:  
-      - apt-get update -y
-      - apt-get install -y software-properties-common
-      - add-apt-repository ppa:openjdk-r/ppa
-      - apt-get update -y
-      - apt-get install -y openjdk-8-jdk
-      - java -version
-      - apt-get install -y maven
-      - mvn -version
-      - echo "testing applications for maven"
-  pre_build:
-    commands:
-      - echo "Nothing to do in the pre_build phase..."
+      java: openjdk8
+    # runtime-versions:
+    #   java: corretto11
   build:
     commands:
-      - echo "Build started on `date`"
+      - mvn package
       - mvn install
-      - pwd
-      - ls -al /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/target/
-  post_build:
-    commands:
-      - echo "Build completed on `date`"
+      - sam package 
+        --template-file sam-template.yml 
+        --s3-bucket aws-lambda-demo-application-new-s3-bucket 
+        --output-template-file packaged-template.yml
 artifacts:
   files:
-    - appspec.yml
-    - /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/*
-  discard-paths: yes
+    - packaged-template.yml
