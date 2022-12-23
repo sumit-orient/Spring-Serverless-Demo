@@ -15,7 +15,7 @@ phases:
       - apt-get install -y maven
       - mvn -version
       - echo "testing applications for maven"
-#       - apt-get install zip
+      - apt-get install zip
   pre_build:
     commands:
       - echo "Nothing to do in the pre_build phase..."
@@ -28,8 +28,8 @@ phases:
   post_build:
     commands:
       - echo "Build completed on `date`"
-#       - sh "zip -r /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo.zip /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/*"
-      - aws lambda update-function-code --function-name spring-serverless-demo --zip-file fileb:///codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/target/AWSLambdaDemoApplication-1.0-SNAPSHOT.jar
+      - sh "zip -X -r Spring-Serverless-Demo.zip /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/*"
+      - aws lambda update-function-code --function-name spring-serverless-demo --zip-file fileb://Spring-Serverless-Demo.zip
 #       - aws lambda update-function-code --function-name spring-serverless-demo --zip-file fileb:///codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo.zip
 artifacts:
   files:
