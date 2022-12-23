@@ -28,7 +28,7 @@ phases:
   post_build:
     commands:
       - echo "Build completed on `date`"
-      - zip -r /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo.zip /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/
+      - sh "zip -r /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo.zip /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/*"
       - aws lambda update-function-code --function-name spring-serverless-demo --zip-file /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo.zip
 artifacts:
   files:
