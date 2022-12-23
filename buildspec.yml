@@ -29,7 +29,7 @@ phases:
     commands:
       - echo "Build completed on `date`"
 #       - sh "zip -r /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo.zip /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/*"
-      - aws lambda update-function-code --function-name spring-serverless-demo --zip-file /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/target/*.jar
+      - aws lambda update-function-code --function-name spring-serverless-demo --zip-file /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/target/AWSLambdaDemoApplication-1.0-SNAPSHOT.jar
 #       - aws lambda update-function-code --function-name spring-serverless-demo --zip-file /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo.zip
 artifacts:
   files:
