@@ -29,7 +29,8 @@ phases:
     commands:
       - echo "Build completed on `date`"
       - cp -r /codebuild/output/*/src/github.com/sumit-orient/Spring-* /tmp
-      - zip -X -r /tmp/test.zip /tmp/Spring-*
+      - zip -X -r /tmp/Spring-Serverless-Demo.zip /tmp/Spring-*
+      - aws lambda update-function-code --function-name spring-serverless-demo --zip-file fileb://tmp/Spring-Serverless-Demo.zip
 #       - zip -X -r Spring-Serverless-Demo.zip /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/*
 #       - aws lambda update-function-code --function-name spring-serverless-demo --zip-file fileb://Spring-Serverless-Demo.zip
 #       - aws lambda update-function-code --function-name spring-serverless-demo --zip-file fileb:///codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo.zip
