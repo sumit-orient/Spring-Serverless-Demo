@@ -12,7 +12,9 @@
 
     <groupId>com.appsdeveloperblog.aws.lambda</groupId>
     <artifactId>AWSLambdaDemoApplication</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1</version>
+    <packaging>jar</packaging>
+    <name>AWSLambdaDemoApplication</name>
 
     <properties>
         <java.version>1.8</java.version>
@@ -67,22 +69,10 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version><!--$NO-MVN-MAN-VER$-->
-                <configuration>
-                    <createDependencyReducedPom>false</createDependencyReducedPom>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+    <finalName>AWSLambdaDemoApplication</finalName>
     </build>
-
 </project>
