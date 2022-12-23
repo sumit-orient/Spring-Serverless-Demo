@@ -20,9 +20,9 @@ Resources:
 # a lifecycle event. Replace "LifeCycleEvent" with BeforeAllowTraffic
 # or AfterAllowTraffic. 
 
-Hooks:
-  - BeforeAllowTraffic: "LambdaFunctionToValidateBeforeTrafficShift"
-  - AfterAllowTraffic: "LambdaFunctionToValidateAfterTrafficShift"
+# Hooks:
+#   - BeforeAllowTraffic: "LambdaFunctionToValidateBeforeTrafficShift"
+#   - AfterAllowTraffic: "LambdaFunctionToValidateAfterTrafficShift"
 
 # Hooks:
 #     - LifeCycleEvent: "" # Specify a Lambda validation function between double-quotes.
