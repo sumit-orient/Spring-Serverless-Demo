@@ -6,30 +6,31 @@ phases:
       #java: corretto11
       #java: openjdk8
     commands:  
-#       - apt-get update -y
-#       - apt-get install -y software-properties-common
-#       - add-apt-repository ppa:openjdk-r/ppa
-#       - apt-get update -y
-#       - apt-get install -y openjdk-8-jdk
-#       - java -version
-#       - apt-get install -y maven
-#       - mvn -version
-#       - echo "testing applications for maven"
-      - apt-get install zip
+      - apt-get update -y
+      - apt-get install -y software-properties-common
+      - add-apt-repository ppa:openjdk-r/ppa
+      - apt-get update -y
+      - apt-get install -y openjdk-8-jdk
+      - java -version
+      - apt-get install -y maven
+      - mvn -version
+      - echo "testing applications for maven"
+#       - apt-get install zip
   pre_build:
     commands:
       - echo "Nothing to do in the pre_build phase..."
   build:
     commands:
       - echo "Build started on `date`"
-#       - mvn install
-#       - pwd
+      - mvn install
+      - pwd
       - ls -al /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/target/
   post_build:
     commands:
       - echo "Build completed on `date`"
-      - sh "zip -r /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo.zip /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/*"
-      - aws lambda update-function-code --function-name spring-serverless-demo --zip-file /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo.zip
+#       - sh "zip -r /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo.zip /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/*"
+      - aws lambda update-function-code --function-name spring-serverless-demo --zip-file /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/target/*.jar
+#       - aws lambda update-function-code --function-name spring-serverless-demo --zip-file /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo.zip
 artifacts:
   files:
     - appspec.yml
