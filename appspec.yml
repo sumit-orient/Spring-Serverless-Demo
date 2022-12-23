@@ -1,5 +1,5 @@
 version: 0.0
-os: linux
+os: ubuntu
 files:
   - source: /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/*
     destination: /tmp/java
