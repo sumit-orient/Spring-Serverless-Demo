@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  #install:
+    # runtime-versions:
+    #   java: corretto11
+  build:
+    commands:
+      - apt-get update -y
+      - apt-get install -y software-properties-common
+      - add-apt-repository ppa:openjdk-r/ppa
+      - apt-get update -y
+      - apt-get install -y openjdk-8-jdk
+      - java -version
+      - apt-get install -y maven
+      - mvn -version
+      - mvn package
+      - mvn install
+      - sam package 
+        --template-file sam-template.yml 
+        --s3-bucket aws-lambda-demo-application-new-s3-bucket 
+        --output-template-file packaged-template.yml
+artifacts:
+  files:
+    - packaged-template.yml
