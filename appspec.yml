@@ -15,7 +15,7 @@ Resources:
         Name: "spring-serverless-demo" # Specify the name of your Lambda function
         Alias: "abcd_demo" # Specify the alias for your Lambda function
         CurrentVersion: "1" # Specify the current version of your Lambda function
-        TargetVersion: "2" # Specify the version of your Lambda function to deploy
+        TargetVersion: "1" # Specify the version of your Lambda function to deploy
 # (Optional) In the Hooks section, specify a validation Lambda function to run during 
 # a lifecycle event. Replace "LifeCycleEvent" with BeforeAllowTraffic
 # or AfterAllowTraffic. 
