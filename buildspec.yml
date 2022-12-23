@@ -38,6 +38,6 @@ phases:
 artifacts:
   files:
     - appspec.yml
-    - /tmp/test.zip
+    - /tmp/Spring-Serverless-Demo.zip
 #     - /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/*
   discard-paths: yes
