@@ -28,16 +28,16 @@ phases:
   post_build:
     commands:
       - echo "Build completed on `date`"
-      - cp -r /codebuild/output/*/src/github.com/sumit-orient/Spring-* /tmp
-      - zip -X -r /tmp/Spring-Serverless-Demo.zip /tmp/Spring-*
+      - cp -r /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/target/ /tmp
+#       - zip -X -r /tmp/Spring-Serverless-Demo.zip /tmp/Spring-*
       - ls /tmp
-      - aws lambda update-function-code --function-name spring-serverless-demo --zip-file fileb:///tmp/Spring-Serverless-Demo.zip
+#       - aws lambda update-function-code --function-name spring-serverless-demo --zip-file fileb:///tmp/Spring-Serverless-Demo.zip
 #       - zip -X -r Spring-Serverless-Demo.zip /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/*
 #       - aws lambda update-function-code --function-name spring-serverless-demo --zip-file fileb://Spring-Serverless-Demo.zip
 #       - aws lambda update-function-code --function-name spring-serverless-demo --zip-file fileb:///codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo.zip
 artifacts:
   files:
     - appspec.yml
-    - /tmp/Spring-Serverless-Demo.zip
+#     - /tmp/Spring-Serverless-Demo.zip
 #     - /codebuild/output/*/src/github.com/sumit-orient/Spring-Serverless-Demo/*
   discard-paths: yes
