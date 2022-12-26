@@ -8,6 +8,6 @@ public class ServiceHandler implements RequestHandler<Map<String,Object>, Object
     @Override
     public Object handleRequest(Map<String,Object> input, Context context) {
     	System.out.println(input);
-        return "Hello World";
+        return "This is Demo Hello World";
     }
 }
